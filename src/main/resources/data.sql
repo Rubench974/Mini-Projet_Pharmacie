@@ -146,6 +146,26 @@ INSERT INTO MEDICAMENT (NOM, CATEGORIE_CODE, QUANTITE_PAR_UNITE, PRIX_UNITAIRE, 
 ('Théophylline 200mg', 10, 'Boîte de 30 comprimés', 8.90, 150, 0, 15, false, 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400'),
 ('Prednisone 20mg', 10, 'Boîte de 20 comprimés', 3.80, 400, 0, 40, false, 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400');
 
+INSERT INTO FOURNISSEUR (ID, NOM, ADRESSE_ELECTRONIQUE) VALUES
+(1, 'PharmaDistrib Sénégal', 'pharmadistrib+senegal@gmail.com'),
+(2, 'MedSupply Africa', 'medsupply+africa@gmail.com'),
+(3, 'BioSanté International', 'biosante+intl@gmail.com'),
+(4, 'AfricaPharma Logistics', 'africapharma+logistics@gmail.com'),
+(5, 'SahelMed Distribution', 'sahelmed+distrib@gmail.com');
+ALTER TABLE Fournisseur ALTER COLUMN id RESTART WITH 6;
+
+INSERT INTO FOURNISSEUR_CATEGORIES_FOURNIES (FOURNISSEURS_ID, CATEGORIES_FOURNIES_CODE) VALUES
+(1, 1), (2, 1),
+(1, 2), (3, 2),
+(2, 3), (4, 3),
+(3, 4), (5, 4),
+(4, 5), (1, 5),
+(5, 6), (2, 6),
+(3, 7), (4, 7),
+(1, 8), (5, 8),
+(2, 9), (3, 9),
+(4, 10), (5, 10);
+
 -- Insertion des dispensaires
 INSERT INTO DISPENSAIRE (CODE, NOM, CONTACT, FONCTION, ADRESSE, CODE_POSTAL, VILLE, REGION, PAYS, TELEPHONE, FAX) VALUES
 ('DSP01', 'Dispensaire Central Dakar', 'Dr. Amadou Diop', 'Directeur', '15 Avenue Léopold Sédar Senghor', '10200', 'Dakar', 'Dakar', 'Sénégal', '+221-33-821-5555', '+221-33-821-5556'),
